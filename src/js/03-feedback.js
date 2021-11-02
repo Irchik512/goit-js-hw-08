@@ -26,6 +26,7 @@ feedbackFormRef.addEventListener('submit', evt => {
     formData.forEach((value, name) => console.log(value, name));
     localStorage.removeItem(LOCALSTORAGE_KEY);
     feedbackFormRef.reset();
+    return;
   }
   alert('Для відправки повідомлення потрібно заповнити усі поля!');
 });
