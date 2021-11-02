@@ -22,12 +22,12 @@ feedbackFormRef.addEventListener('submit', evt => {
   const email = feedbackFormRef.elements.email.value;
   const message = feedbackFormRef.elements.message.value;
   const formData = new FormData(feedbackFormRef);
-  if (!email || !message) {
-    alert('Для відправки повідомлення потрібно заповнити усі поля!');
+  if (email && message !== '') {
+    formData.forEach((value, name) => console.log(value, name));
+    localStorage.removeItem(LOCALSTORAGE_KEY);
+    feedbackFormRef.reset();
   }
-  formData.forEach((value, name) => console.log(value, name));
-  localStorage.removeItem(LOCALSTORAGE_KEY);
-  feedbackFormRef.reset();
+  alert('Для відправки повідомлення потрібно заповнити усі поля!');
 });
 
 function initForm() {
